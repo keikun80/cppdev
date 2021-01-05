@@ -1,30 +1,38 @@
 #include <iostream>
-#include <cstring>
+#include <ctime> 
 
-using namespace std;
+using namespace std; 
 
-int main()
+const int Cities = 5;
+const int Years = 4;
+int main() 
 {    
-    char animal[20] = "bear";
-    const char *bird ="wren";
-    char *ps;
-    cout << animal << " and ";
-    cout << bird << "\n";
-    
-    cout << "동물의 종류를 입력하세요 : ";
-    cin >> animal;
-    ps = animal;
-    cout <<  ps << "s\n";
-    cout << "strcpy 사용 전 :\n"; 
-    cout << (int *) animal << ": " << animal << endl;
-    cout << (int *) ps << ": " << ps << endl;
-    ps = new char[strlen(animal)]; 
-    strcpy(ps, animal);
-    cout << "strcpy 사용 후 :\n";
-    cout << (int *) animal << ": " << animal << endl;
-    cout << (int *) ps << ": " << ps << endl;
+    const char * cities[Cities] = 
+    {
+        "Seoul",
+        "Jeju",
+        "Busan",
+        "Gangneung",
+        "Daegu"
+    }; 
 
-    delete [] ps;
+    int maxtemps[Years][Cities] =
+    {
+        {35,32,33,36,35},
+        {33,32,34,35,31},
+        {33,34,32,35,34},
+        {36,35,34,37,35}
+    }; 
+
+    cout << "2009년부터 2012년까지의 연중 최고 온도 \n\n";
+    for (int city = 0; city < Cities; city++)
+    {
+        cout << cities[city] <<": \t";
+        for (int year=0; year < Years; year++)
+        {
+            cout << maxtemps[year][city] << "\t";
+        }
+        cout << "\n";
+    }
     return 0;
-
 }
