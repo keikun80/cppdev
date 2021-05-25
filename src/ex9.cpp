@@ -1,4 +1,5 @@
 #include <cstdio> 
+#include <queue> 
 
 struct Node 
 {
@@ -101,6 +102,31 @@ void DFS(Graph* pg, int ver)
     _DFS(pg, ver, visited);  
     printf("\n");
     delete [] visited;
+} 
+void BFS(Graph* pg, int ver)
+{
+    int* visited = new int[pg->versize];
+    for (int i = 0; i < pg->versize; i++)
+        visited[i] = 0; 
+
+    std::queue<int> q; 
+    q.push(ver); 
+    visited[ver] = 1;
+    while(!q.empty())
+    { 
+        int cur = q.front();
+        q.pop(); 
+        printf("%d ", cur); 
+        for (Node *p = pg->head[cur] ; p != NULL; p = p->link) 
+        {
+            if(!visited[p->data]) 
+            {
+                q.push(p->data); 
+                visited[p->data] = 1;
+            }
+        } 
+    }
+    delete [] visited;
 }
 int main()
 { 
@@ -125,7 +151,9 @@ int main()
 
     PrintGraph(&g); 
 
-    DFS(&g, 3);
+    //DFS(&g, 0); 
+
+    BFS(&g, 0);
     UninitGraph(&g);
     return 0;
 } 
