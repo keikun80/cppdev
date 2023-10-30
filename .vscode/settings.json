@@ -1,6 +1,6 @@
 {
     "debug.console.fontFamily": "JetBrains Mono",
     "editor.fontFamily": "JetBrains Mono",
-    "terminal.integrated.fontFamily": "JetBrains Mono",
+    "terminal.integrated.fontFamily": "monospace",
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }

@@ -6,4 +6,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
 
 # [Optional] Uncomment this section to install additional packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+#     && apt-get -y install --no-install-recommends <your-package-list-here> 
+RUN apt-get -y update
+# RUN apt-get -y install clangd-11
+# RUN sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 100

@@ -7,7 +7,7 @@
             "request": "launch",
             // Resolved by CMake Tools:
             "program": "${command:cmake.launchTargetPath}",
-            "args": [],
+            "args": ["param1","param2","param3"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [
